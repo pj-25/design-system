@@ -1,10 +1,10 @@
-// node --test src/design/  (SPEC-001 R11)
+// node --test  (SPEC-001 R11)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { contrast, build, resolve, flatten, merge, toCss, cssVar, colorHex, lintRawColours, lintFontSizes } from './build-tokens.mjs';
+import { contrast, build, resolve, flatten, merge, toCss, cssVar, colorHex, lintRawColours, lintFontSizes } from '../lib/build-tokens.mjs';
 
 const col = (hex) => ({ $type: 'color', $value: { colorSpace: 'srgb', components: [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255), hex } });
 const pair = (ref, on, min) => ({ $type: 'color', $value: `{${ref}}`, $extensions: { 'io.github.pj-25': { contrast: { on, min } } } });

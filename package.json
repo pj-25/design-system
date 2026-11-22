@@ -1,0 +1,23 @@
+{
+  "name": "pj-design-system",
+  "version": "0.1.0",
+  "description": "Intent-driven design tokens and generators: CSS custom properties, Ghostty and Neovim themes, with WCAG contrast gates.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Prashant Joshi (https://pj-25.github.io)",
+  "repository": { "type": "git", "url": "https://github.com/pj-25/design-system.git" },
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./lib": "./lib/build-tokens.mjs",
+    "./terminal": "./lib/build-terminal.mjs",
+    "./tokens/*": "./tokens/*",
+    "./dist/*": "./dist/*"
+  },
+  "files": ["lib", "tokens", "dist", "README.md", "LICENSE"],
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node lib/build-tokens.mjs && node lib/build-terminal.mjs",
+    "check": "node lib/build-tokens.mjs --check && node lib/build-terminal.mjs --check",
+    "test": "node --test test/build-tokens.test.mjs test/build-terminal.test.mjs"
+  }
+}

@@ -2,9 +2,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { buildTerminal, gates, ghostty } from './build-terminal.mjs';
+import { buildTerminal, gates, ghostty } from '../lib/build-terminal.mjs';
 
-const read = (n) => JSON.parse(readFileSync(new URL(`./tokens/${n}`, import.meta.url), 'utf8'));
+const read = (n) => JSON.parse(readFileSync(new URL(`../tokens/${n}`, import.meta.url), 'utf8'));
 const real = () => buildTerminal(read('base.tokens.json'), read('terminal.tokens.json'));
 
 test('real palettes pass every contrast gate in both themes', () => {
